@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import PrivateRoute from './routes/PrivatRoutes';
-import PublicRoute from './routes/PublicRoutes';
-import { authOperations, authSelectors } from 'redux/auth';
+import PrivateRoute from '../../routes/PrivatRoutes';
+import PublicRoute from '../../routes/PublicRoutes';
+import { authOperations, authSelectors } from '../../redux/auth';
 import Loader from 'components/Loader';
 import AppBar from 'components/AppBar';
 import { ToastContainer } from 'react-toastify';

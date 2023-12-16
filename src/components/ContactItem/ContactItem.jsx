@@ -1,6 +1,6 @@
 import { Item, Button } from './ContactItem.styled';
 import { RotatingLines } from 'react-loader-spinner';
-import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
+import { useDeleteContactMutation } from '../../ redux/contacts/contactsApi';
 
 function ContactItem({ id, name, number }) {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
