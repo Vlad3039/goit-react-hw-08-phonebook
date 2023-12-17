@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import {
   useFetchContactsQuery,
   useCreateContactMutation,
-} from 'redux/contacts/contactsApi';
+} from '../../ redux/contacts/contactsApi';
 import Loader from 'components/Loader';
 
 function ContactForm() {
