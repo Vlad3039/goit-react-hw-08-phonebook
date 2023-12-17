@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import PrivateRoute from '../../routes/PrivatRoutes';
-import PublicRoute from '../../routes/PublicRoutes';
-import { authOperations, authSelectors } from '../../ redux/auth';
-import Loader from '../Loader';
+
+import { authOperations, authSelectors } from '../../redux/auth';
+import Loader from '../Loader/Loader';
 import AppBar from 'components/AppBar';
 import { ToastContainer } from 'react-toastify';
+import PrivateRoute from 'routes/PrivatRoutes';
+import PublicRoute from 'routes/PublicRoutes';
 
-const PageHome = lazy(() => import('pages/PageHome'));
-const PageRegistration = lazy(() => import('pages/PageRegistration'));
-const PageLogin = lazy(() => import('pages/PageLogin'));
-const PageContacts = lazy(() => import('pages/PageContacts'));
+const PageHome = lazy(() => import('pages/PageHome/PageHome'));
+const PageRegistration = lazy(() =>
+  import('pages/PageRegistration/PageRegistration')
+);
+const PageLogin = lazy(() => import('pages/PageLogin/PageLogin'));
+const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,7 +33,6 @@ const App = () => {
             <Routes>
               <Route
                 path="/"
-                exact
                 element={
                   <PublicRoute>
                     <PageHome />
@@ -38,7 +40,7 @@ const App = () => {
                 }
               />
               <Route
-                path="register"
+                path="/register"
                 element={
                   <PublicRoute redirectTo="/contacts" restricted>
                     <PageRegistration />
@@ -46,7 +48,7 @@ const App = () => {
                 }
               />
               <Route
-                path="login"
+                path="/login"
                 element={
                   <PublicRoute redirectTo="/contacts" restricted>
                     <PageLogin />
@@ -54,7 +56,7 @@ const App = () => {
                 }
               />
               <Route
-                path="contacts"
+                path="/contacts"
                 element={
                   <PrivateRoute>
                     <PageContacts />

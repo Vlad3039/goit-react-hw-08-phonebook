@@ -3,7 +3,7 @@ import React from 'react';
 import Loader from 'components/Loader';
 import { List, Error } from './ContactList.styled';
 import { useSelector } from 'react-redux';
-import { useFetchContactsQuery } from '../../ redux/contacts/contactsApi';
+import { useFetchContactsQuery } from '../../redux/contacts/contactsApi';
 import { getFilter } from '../../ redux/contacts/contactsSelectors';
 
 const ContactList = () => {
