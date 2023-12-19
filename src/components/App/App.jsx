@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { authOperations, authSelectors } from '../../redux/auth';
 import Loader from '../Loader/Loader';
-import AppBar from 'components/AppBar';
+import AppBar from '../AppBar/AppBar';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from 'routes/PrivatRoutes';
 import PublicRoute from 'routes/PublicRoutes';
