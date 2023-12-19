@@ -6,7 +6,7 @@ import {
   useFetchContactsQuery,
   useCreateContactMutation,
 } from '../../redux/contacts/contactsApi';
-import Loader from 'components/Loader';
+import Loader from 'components/Filter/Filter';
 
 function ContactForm() {
   const [name, setName] = useState('');

@@ -1,10 +1,10 @@
-import ContactItem from 'components/ContactItem';
+import ContactItem from 'components/ContactItem/ContactItem';
 import React from 'react';
-import Loader from 'components/Loader';
+import Loader from 'components/Loader/Loader';
 import { List, Error } from './ContactList.styled';
 import { useSelector } from 'react-redux';
 import { useFetchContactsQuery } from '../../redux/contacts/contactsApi';
-import { getFilter } from '../../ redux/contacts/contactsSelectors';
+import { getFilter } from '../../redux/contacts/contactsSelectors';
 
 const ContactList = () => {
   const { data: contacts, error, isLoading } = useFetchContactsQuery();
