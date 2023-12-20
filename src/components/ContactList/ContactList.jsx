@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useFetchContactsQuery } from '../../redux/contacts/contactsApi';
 import { getFilter } from '../../redux/contacts/contactsSelectors';
 
-const ContactList = () => {
+export const ContactList = () => {
   const { data: contacts, error, isLoading } = useFetchContactsQuery();
 
   const filter = useSelector(getFilter);
@@ -38,5 +38,3 @@ const ContactList = () => {
     </>
   );
 };
-
-export default ContactList;
