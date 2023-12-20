@@ -2,10 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { authOperations, authSelectors } from '../../redux/auth';
+import authOperations from '../../redux/auth/authOperations';
+import authSelectors from '../../redux/auth/authSelectors';
 import Loader from '../Loader/Loader';
 import AppBar from '../AppBar/AppBar';
-import { ToastContainer } from 'react-toastify';
+
 import PrivateRoute from 'routes/PrivatRoutes';
 import PublicRoute from 'routes/PublicRoutes';
 
@@ -15,6 +16,8 @@ const PageRegistration = lazy(() =>
 );
 const PageLogin = lazy(() => import('pages/PageLogin/PageLogin'));
 const PageContacts = lazy(() => import('pages/PageContacts/PageContacts'));
+
+// інші імпорти ...
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,17 +31,10 @@ const App = () => {
     <>
       {!isFetchingCurrentUser && (
         <>
-          <AppBar />
           <Suspense fallback={<Loader />}>
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <PublicRoute>
-                    <PageHome />
-                  </PublicRoute>
-                }
-              />
+              <Route element={<AppBar />}></Route>
+              <Route index element={<PageHome />} />
               <Route
                 path="/register"
                 element={
@@ -63,10 +59,10 @@ const App = () => {
                   </PrivateRoute>
                 }
               />
+              <Route />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
-          <ToastContainer autoClose={3700} position="top-center" />
         </>
       )}
     </>

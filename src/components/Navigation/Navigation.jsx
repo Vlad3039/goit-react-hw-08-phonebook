@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { authSelectors } from '../../redux/auth';
+import authSelectors from '../../redux/auth/authSelectors';
 
 import { Link } from './Navigation.styled';
 
